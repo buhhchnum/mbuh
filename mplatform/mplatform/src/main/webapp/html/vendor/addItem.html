@@ -1,0 +1,41 @@
+<div class="col-md-2" ng-include src="'html/vendor/leftNav.html'"></div>
+<div class="col-lg-6">
+<div class="panel panel-default">
+	<div class="panel-heading">
+		<h3 class="panel-title">Item Details</h3>
+	</div>
+	<div class="panel-body">
+		<form>
+			<div class="form-group">
+				<label for="vendor">Vendor ID</label>
+				<input type="text" class="form-control" id="vendor" placeholder="Vendor Id"  ng-model="itemForm.vendor.id">
+			</div>
+			<div class="form-group">
+				<label for="inputBusinessType">Item Type</label>
+				<select class="form-control" ng-model="itemForm.itemType.id">
+				  <option value="10000">Pastry</option>
+				  <option value="10001">Sweets</option>
+				  <option value="10002">Cakes</option>				
+				</select>
+			</div>
+			<div class="form-group">
+				<label for="inputName">Item Name</label>
+				<input type="text" class="form-control" id="inputName" placeholder="Name"  ng-model="itemForm.name">
+			</div>
+			<div class="form-group">
+				<label for="inputoPrice">Original Price</label>
+				<input type="text" class="form-control" id="inputoPrice" placeholder="0" ng-model="itemForm.originalPrice">
+			</div>		
+			<div class="form-group">
+				<label for="inputdPrice">Discounted Price</label>
+				<input type="text" class="form-control" id="inputdPrice" placeholder="0" ng-model="itemForm.discountedPrice">
+			</div>
+			<div class="form-group">
+				<label for="inputdate">Offer Expiry Date</label>
+				<input  type="text" class="form-control" id="inputdate" placeholder="Small Description" ng-model="itemForm.offerExpDate">
+			</div>			
+			<button type="submit" class="btn btn-success"  ng-click="itemForm.submitForm()">Save</button>			
+		</form>
+	</div>
+</div>
+</div>

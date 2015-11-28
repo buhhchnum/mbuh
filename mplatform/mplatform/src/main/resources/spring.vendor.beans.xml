@@ -1,0 +1,27 @@
+<beans xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.springframework.org/schema/beans"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd		
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+		
+		<!--  <context:component-scan base-package="org.munchub.core.rest"></context:component-scan> -->
+		<context:annotation-config/>
+		
+		<bean id="vendorDAO" class="org.munchub.core.dao.VendorDAOImpl">
+			<property name="hibernateTemplate" ref="hibernateTemplate"></property>
+		</bean>
+		
+		<bean id="vendorBeanConverter" class="org.munchub.common.bean.utils.VendorBeanConverter">
+			<property name="vendorDAO" ref="vendorDAO" />		
+		</bean>
+		
+		<bean id="vendorService" class="org.munchub.core.service.VendorServiceImpl">
+			<property name="vendorDAO" ref="vendorDAO"></property>
+			<property name="vendorBeanConvertor" ref="vendorBeanConverter"></property>
+		</bean>
+		
+		<bean id="vendorResource" class="org.munchub.core.rest.VendorResource" scope="singleton">
+			<property name="vendorService" ref="vendorService"></property>
+    	</bean>
+    	    	
+</beans>
